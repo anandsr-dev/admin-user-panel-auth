@@ -1,0 +1,29 @@
+<head>
+    <link rel="stylesheet" href="stylesheets/userpanel.css">
+</head>
+<header>
+    <div class="nav">
+        <p>{{userName}}</p>
+        <div class="logout">
+            <p>{{email}}</p>
+            <form action="/logout" method="POST">
+                <button type="submit" class="btn btn-primary">Log Out</button>
+            </form>
+
+        </div>
+    </div>
+
+</header>
+
+<div class="container">
+    <div class="flex-box">
+        {{#each items}}
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="images/{{this.id}}.jpg" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">{{this.title}}</h5>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>

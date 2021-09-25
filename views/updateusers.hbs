@@ -1,0 +1,64 @@
+<head>
+    <link rel="stylesheet" href="stylesheets/adminpanel.css">
+    <title>Edit User</title>
+</head>
+<header>
+    <div class="logout">
+        <a href="/adminhome" style="text-decoration: none; color:inherit"><p class="h5">Admin</p></a>
+        
+        <a href="/signout"> <button class="btn btn-secondary btn-sm">Log Out</button></a>
+
+    </div>
+</header>
+<div class="container">
+    <h1>Edit User</h1>
+    <table class="table mt-5">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Password</th>
+            </tr>
+
+        </thead>
+        <tbody>
+            <tr>
+                <form id="updateform" action="/edit?email={{user.email}}" method="POST">
+                    <td scope="col">
+                        <label for="name">
+                            <input type="text" name="name" id="fname" value={{user.name}} >
+                        </label>
+                        
+                    </td>
+                    <td scope="col"> <label for="email">
+                            <input type="text" id="femail" name="email" value={{user.email}}>
+                        </label>
+                        
+                        </td>
+                    <td scope="col"> <label for="password">
+                            <input type="password" id="fpass1" name="password">
+                        </label>
+                        
+                        </td>
+                    <td>
+                        <button type="submit" class="btn btn-danger">Submit</button>
+                    </td>
+                </form>
+
+
+            </tr>
+            <tr>
+                <td><label for="name" id="nameerr" class="text-danger"></label></td>
+                <td><label for="email" id="emailerr" class="text-danger"></label></td>
+                <td><label for="password" id="pass1err" class="text-danger"></label></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="container">
+<label class="text-danger">{{error}}</label>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="scripts/updateuser.js"></script>

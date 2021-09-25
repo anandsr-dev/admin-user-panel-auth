@@ -1,0 +1,63 @@
+<head>
+  <link rel="stylesheet" href="stylesheets/adminpanel.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.2/css/jquery.dataTables.css">
+</head>
+<header>
+  <div class="logout">
+    <a href="/adminhome" style="text-decoration: none; color:inherit">
+      <p class="h5">Admin</p>
+    </a>
+    <a href="/signout"> <button class="btn btn-secondary btn-sm">Log Out</button></a>
+
+  </div>
+</header>
+
+<div class="container">
+  <table class="table mt-5" id="users">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Password</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+      </tr>
+
+    </thead>
+    <tbody>
+      {{#each users}}
+      <tr>
+        <td scope="col">{{this.index}}</td>
+        <td scope="col">{{this.name}}</td>
+        <td scope="col">{{this.email}}</td>
+        <td scope="col">{{this.password}}</td>
+        <td scope="col">
+          <a href="/edit?email={{this.email}}"><button type="submit" class="btn btn-warning">Edit</button>
+        </td>
+        <td>
+          <form action="/delete?email={{this.email}}" method="POST"><button type="submit"
+              class="btn btn-danger">Delete</button></form>
+        </td>
+
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+  <div class="add">
+    <a href="/adduser"><button class="btn btn-success" type="submit">Add</button></a>
+
+
+
+  </div>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.2/js/jquery.dataTables.js"></script>
+<script>
+  $(document).ready(function () {
+    $('#users').DataTable();
+  });
+</script>

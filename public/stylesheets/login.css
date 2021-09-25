@@ -1,0 +1,8 @@
+.cardstyle{
+    justify-content: center;
+}
+
+.admin{
+    display: flex;
+    justify-content: end;
+}
